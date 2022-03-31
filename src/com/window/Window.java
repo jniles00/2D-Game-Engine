@@ -2,7 +2,7 @@ package com.window;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 
 import com.constants.Constants;
@@ -10,6 +10,7 @@ import com.constants.Constants;
 public class Window extends JFrame implements Runnable {
 
 	Graphics2D graphics2D;
+	KeyListen keyListener = new KeyListen();
 
 	public Window() {
 		this.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -17,7 +18,7 @@ public class Window extends JFrame implements Runnable {
 		this.setResizable(false); // Stops the user from being able to resize the window
 		this.setVisible(true); // Sets the window to be visible
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Exits the game when clicking on the X in the top right
-
+		this.addKeyListener(keyListener);	// Sets up the Key Listener
 		graphics2D = (Graphics2D) this.getGraphics(); // Casting to Graphics2D
 	}
 
@@ -25,6 +26,15 @@ public class Window extends JFrame implements Runnable {
 		// Setting up the windows colour
 		graphics2D.setColor(Color.black);
 		graphics2D.fillRect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+		
+		if(keyListener.isKeyPressed(KeyEvent.VK_UP)) {
+			System.out.println("The player is pressing the up arrow key");
+		} else if(keyListener.isKeyPressed(KeyEvent.VK_DOWN)) {
+			System.out.println("The player is pressing down key arrow");
+		}
+		
+		Rect rect = new Rect(50, 100, 40, 80, Color.white);
+		rect.drawRect(graphics2D);
 	}
 
 	@Override
