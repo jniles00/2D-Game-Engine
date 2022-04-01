@@ -27,6 +27,6 @@ public class Rect {
 
 	public void drawRect(Graphics2D graphics2d) {
 	graphics2d.setColor(colour);	// Sets the colour of the rectangle
-	graphics2d.fillRect(x, y, width, height);	// Draws a rectangle on the screen
+	graphics2d.fillRect(x, y, width, height);	// Draws a rectangle  a specified position on the screen
 	}
 }
