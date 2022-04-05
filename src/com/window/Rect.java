@@ -2,13 +2,15 @@ package com.window;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 
 public class Rect {
 	
-	private int x;
-	private int y;
-	private int width;
-	private int height;
+	public double x;
+	public double y;
+	public double width;
+	public double height;
 	
 	private Color colour;
 	
@@ -16,7 +18,7 @@ public class Rect {
 	public Rect() {};
 	
 	// Constructor
-	public Rect(int x, int y, int width, int height, Color colour) {
+	public Rect(double x, double y, double width, double height, Color colour) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -27,6 +29,6 @@ public class Rect {
 
 	public void drawRect(Graphics2D graphics2d) {
 	graphics2d.setColor(colour);	// Sets the colour of the rectangle
-	graphics2d.fillRect(x, y, width, height);	// Draws a rectangle  a specified position on the screen
+	graphics2d.fill(new Rectangle2D.Double(x, y, width, height)); // Draws a rectangle  a specified position on the screen
 	}
 }
