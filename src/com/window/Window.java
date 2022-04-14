@@ -14,6 +14,7 @@ public class Window extends JFrame implements Runnable {
 	public Graphics2D graphics2D;
 	public KeyListen keyListener = new KeyListen();
 	public PlayerController playerController;
+	public AIController playerTwoController;
 
 	public Rect playerOne;
 	public Rect playerTwo;
@@ -35,11 +36,16 @@ public class Window extends JFrame implements Runnable {
 		playerOne = new Rect(Constants.HORIZONTAL_PADDING, 40, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT,
 				Constants.PLAYER_COLOUR);
 		playerController = new PlayerController(playerOne, keyListener);
-
+		
 		playerTwo = new Rect(Constants.SCREEN_WIDTH - Constants.PLAYER_WIDTH - Constants.HORIZONTAL_PADDING, 40,
 				Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT, Constants.PLAYER_COLOUR);
+		
 		ball = new Rect(Constants.SCREEN_WIDTH / 2, Constants.SCREEN_HEIGHT / 2, Constants.BALL_WIDTH,
 				Constants.BALL_WIDTH, Constants.PLAYER_COLOUR);
+//		ball = new Ball(ballRect, playerOne, playerTwo);
+		
+
+//		playerTwoController = new AIController(new playerController(playerTwo), ballRect);
 	}
 
 	public void Update(double deltaTime) {
@@ -47,6 +53,7 @@ public class Window extends JFrame implements Runnable {
 		doubleBuffering();
 
 		playerController.update(deltaTime);
+		playerTwoController.update(deltaTime);
 
 //		if (keyListener.isKeyPressed(KeyEvent.VK_UP)) {
 //		System.out.println("The player is pressing the up arrow key");
