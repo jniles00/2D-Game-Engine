@@ -43,7 +43,7 @@ public class PlayerController {
 	public void MoveDown(double deltaTime) {
 		if ((rect.y + Constants.PLAYER_SPEED * deltaTime) + rect.height < Constants.SCREEN_HEIGHT
 				- Constants.INSETS_BOTTOM) {
-			this.rect.y = (double) (this.rect.y + Constants.PLAYER_SPEED * deltaTime); // Then by casting to double, it
+			this.rect.y = (double) (this.rect.y + Constants.PLAYER_SPEED * deltaTime);  // Then by casting to double, it
 																						// will move the // rectangle
 																						// down
 		}

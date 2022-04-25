@@ -32,7 +32,7 @@ public class Window extends JFrame implements Runnable {
 		Constants.INSETS_BOTTOM = this.getInsets().bottom; // Gets the position of the bottom of the window
 		graphics2D = (Graphics2D) this.getGraphics(); // Casting to Graphics2D
 
-		// x = 0, y = 0, width = 30, height = 60, color = white
+		// x = 0, y = 0, width = 30, height = 60, colour = white
 		playerOne = new Rect(Constants.HORIZONTAL_PADDING, 40, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT,
 				Constants.PLAYER_COLOUR);
 		playerController = new PlayerController(playerOne, keyListener);
@@ -45,7 +45,7 @@ public class Window extends JFrame implements Runnable {
 //		ball = new Ball(ballRect, playerOne, playerTwo);
 		
 
-//		playerTwoController = new AIController(new playerController(playerTwo), ballRect);
+		playerTwoController = new AIController(new playerController(playerTwo), ballRect);
 	}
 
 	public void Update(double deltaTime) {
