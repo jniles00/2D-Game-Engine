@@ -45,7 +45,7 @@ public class Window extends JFrame implements Runnable {
 //		ball = new Ball(ballRect, playerOne, playerTwo);
 		
 
-		playerTwoController = new AIController(new playerController(playerTwo), ballRect);
+		playerTwoController = new AIController(new PlayerController(playerTwo), ball);
 	}
 
 	public void Update(double deltaTime) {
